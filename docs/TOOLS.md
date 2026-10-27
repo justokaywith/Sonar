@@ -1,28 +1,50 @@
-# Tool guide
+# Tool and evidence guide
 
-The workbench organizes 32 focused capabilities in these views:
+Use the [hosted workspace](https://sonar.pactuno.online/) to run tools. This repository contains instructions and fictional examples, not the application backend.
 
-| View | Evidence and use |
-|---|---|
-| Overview / Site crawl | Weighted technical score, sampled pages, crawl state and bounded response timing |
-| Issues | Affected URLs, observed evidence, explanation, repair steps and standards references |
-| Page explorer | Per-page metadata, headings, links, images and selected headers |
-| Internal & broken links | Sample graph, fetched failures and incoming-link counts |
-| Content insights | Duplicate metadata, approximate word counts, available publication/update dates |
-| Keywords & phrases | On-page word and phrase frequencies, overlap candidates |
-| Growth & recheck | Page-specific editorial/technical suggestions, 30-day improvement plan, before/after findings |
-| Search performance | Local Queries/Pages/Dates CSV import, clicks, impressions, derived CTR and weighted position |
-| SERP & social previews | Draft previews from actual metadata, not a guarantee of search appearance |
-| Performance | Google PageSpeed request and an explicit lab/field distinction |
-| Robots & sitemap | Robots tester and sitemap discovery |
-| HTTP & security | Selected headers, HTTPS and mixed-content signals |
-| Owner security checks | Verified-domain, explicit-consent limited baseline plus fixed-path HEAD signals |
-| Security logs | Local access/JSON/NDJSON log heuristics; masked IPs and query redaction |
-| Compare pages | Two fetched pages with evidence-based comparison |
-| Crawl history | Owned saved runs and fresh comparisons |
-| Verified score badge | Domain proof, 90+ eligibility, embed code, expiry and organization reclaim |
-| All tools | Searchable catalogue and navigation |
+## Audit and page evidence
 
-Dependency review supports production npm package-lock entries, Composer lockfiles and pinned Python requirements imported locally. Only selected package names/ecosystems/exact versions are sent to the public OSV API after confirmation. Lookup failure does not mean safe.
+| Tool area | What to inspect |
+| --- | --- |
+| Overview / Site crawl | Current sample, state, scope, technical score and notes. |
+| Issues | Affected URL, observed evidence and suggested repair. |
+| Page explorer | Returned metadata, headings, links, images and selected response signals. |
+| Robots & sitemap | Crawl directives and observed discovery information. |
+| HTTP & security | Selected response headers, HTTPS and mixed-content signals. |
 
-Suggestions are original heuristics based on the observed page and inferred public technology. They are not paid AI output, search-volume estimates or guaranteed traffic gains.
+Current crawl modes include single-page, fast up to 50 pages and deep up to 100 pages. Actual coverage can be smaller. The crawler does not render site JavaScript.
+
+## Intelligence and comparisons
+
+| Tool area | How to interpret it |
+| --- | --- |
+| Link architecture | Relationships and depth in the fetched sample; verify orphan candidates. |
+| Content review | Duplicate metadata and other observed or heuristic page signals. |
+| Keyword intelligence | On-page terms and supported intent/topic analysis; not a global volume index. |
+| Competitor / head-to-head comparisons | Compare supported page evidence. A comparison is not private competitor analytics. |
+| SERP & social previews | Draft appearance based on metadata; search/social platforms can display something different. |
+| Growth and rechecks | Prioritized suggestions and supported comparisons with an owned baseline. |
+
+Suggestions need editorial judgment. They do not guarantee visitors, rankings or AI recommendations.
+
+## Search and performance
+
+Authorized Search Console exports can provide real clicks, impressions, CTR and position. The [fictional example CSV](../examples/search-console-queries.csv) demonstrates a format; its rows are not market estimates.
+
+Direct Google connections require operator configuration, consent and property permissions. A setup screen does not mean the provider is connected.
+
+Performance tools must distinguish crawler response timing, official provider results and imported reports. Provider quotas and availability apply. Missing external evidence must remain unavailable.
+
+## Connected-domain tools
+
+[Domain verification](DOMAINS.md) combines a matching verified business email, domain-control proof and an exclusive organization claim.
+
+Eligible users can request a dated score badge and the supported limited security checks. Those checks are not a full penetration test or continuous monitoring.
+
+Dependency advisory lookups disclose package names/versions to OSV after the relevant authorization. Local log analysis is heuristic; do not post logs or private reports publicly.
+
+## Exports and account
+
+Use available CSV/JSON/fix-brief exports and **Crawl history** to return to owned reports. Sign-in uses an independent Sonar account. Workspace deletion and login-account erasure are different operations; read the [privacy notice](https://sonar.pactuno.online/privacy.html).
+
+[Dashboard](DASHBOARD.md) · [Methodology](METHODOLOGY.md) · [FAQ](FAQ.md)

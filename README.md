@@ -1,58 +1,154 @@
-<p align="center"><img src="assets/sonar.svg" width="88" alt="Sonar logo"></p>
-<h1 align="center">Sonar</h1>
-<p align="center">Know your website. See what comes next.</p>
-<p align="center"><a href="https://sonar.pactuno.online/">Open Sonar</a> · <a href="docs/QUICKSTART.md">Quick start</a> · <a href="docs/TOOLS.md">Tool guide</a> · <a href="CONTRIBUTING.md">Contribute</a></p>
+<div align="center">
+  <a href="https://sonar.pactuno.online/"><img src="assets/sonar.svg" alt="Sonar by Pactuno" width="96"></a>
+  <h1>Sonar — website intelligence, made clear</h1>
+  <p><strong>Know your website. See what comes next.</strong></p>
+  <p>Free, on-demand website SEO audits. Real page evidence. A clearer next step.</p>
+  <p>
+    <a href="https://sonar.pactuno.online/"><strong>Open Sonar</strong></a>
+    &nbsp;·&nbsp; <a href="docs/QUICKSTART.md">Quick start</a>
+    &nbsp;·&nbsp; <a href="docs/TOOLS.md">Explore the tools</a>
+    &nbsp;·&nbsp; <a href="https://pactuno.online/blog/">Read the guides</a>
+  </p>
+  <p>
+    <img src="https://img.shields.io/badge/status-early_access-0a84ff" alt="Status: early access">
+    <img src="https://img.shields.io/badge/use-free-10213e" alt="Free hosted tool">
+    <img src="https://img.shields.io/badge/repository-docs_%26_examples-008baf" alt="Public documentation and examples">
+  </p>
+</div>
 
-Sonar is a free, on-demand website audit and SEO workbench by Pactuno. Start with a URL, inspect real evidence, plan improvements, and recheck what changed. No paid API key is needed.
+---
 
-![Sonar workbench in dark mode](assets/dashboard-dark.png)
+![Sonar: inspect a website, understand the evidence and verify the change](assets/sonar-banner.svg)
 
-## Start in one minute
+**Start here:** [Workspace](https://sonar.pactuno.online/) · [First audit](docs/QUICKSTART.md) · [Dashboard](docs/DASHBOARD.md) · [Scoring](docs/METHODOLOGY.md) · [FAQ](docs/FAQ.md) · [Roadmap](ROADMAP.md) · [Contribute](CONTRIBUTING.md)
+
+## Stop collecting warnings. Start understanding them.
+
+A missing title. An unexpected canonical. A useful page with no incoming links in your crawl sample. An audit should help you find the affected URL, understand the evidence and decide what to fix.
+
+Sonar brings that workflow into one hosted workspace: inspect public pages, review technical findings, plan improvements and recheck the published result.
+
+**This is Sonar’s public documentation and community repository.** The hosted application and infrastructure source remain private. You do not need to clone this repository or install a server to use Sonar.
+
+## Dashboard at a glance
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/dashboard-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="assets/dashboard-light.png">
+  <img src="assets/dashboard-light.png" alt="Actual Sonar workbench with the website URL field, crawl-scope selector and tool navigation">
+</picture>
+
+*Actual public product captures, without signing in or selecting a report. No customer information or invented results. The image follows your GitHub color preference.*
+
+[Dashboard walkthrough →](docs/DASHBOARD.md)
+
+## Run your first audit
+
 1. Open [Sonar](https://sonar.pactuno.online/).
-2. Enter a public HTTPS website. Choose a single page or a site crawl.
-3. Open **Issues** to see affected pages, evidence and a repair guide.
-4. Use **Growth & recheck**, then export a fix brief or compare the next audit.
+2. Enter a public HTTPS website.
+3. Choose **Single page audit**, **Fast crawl · up to 50 pages**, or **Deep crawl · up to 100 pages**.
+4. Select **Analyze website**, then review **Issues** and **Page explorer**.
+5. Make the change in your own website’s editor or codebase, then recheck it.
 
-Basic audits work without signing in. Sign in with a verified Pactuno account to keep reports across sessions. Domain connections, security checks and badges require a matching verified business email and domain-control proof.
+Basic audits work without an account. Keep the tab open while crawl steps run; pause/resume controls and **Crawl history** help you continue. The page limit is a maximum sample, not a promise to fetch every page.
+
+[Full quick start and troubleshooting →](docs/QUICKSTART.md)
 
 ## What you can do
-- Crawl up to 25 original-HTML pages per run, within a bounded report budget; pause, resume or cancel.
-- Inspect titles, descriptions, headings, canonical tags, indexing signals, images, structured-data syntax, links and selected response headers.
-- Explore duplicate metadata, internal-link graphs, orphan candidates and keyword-overlap candidates.
-- Get page-specific repair steps, keyword/topic drafts and a practical traffic-improvement plan.
-- Recheck a page against an owned baseline, including new/resolved findings and HTML changes.
-- Import Search Console CSV locally for measured clicks, impressions, CTR and position.
-- Request Google PageSpeed measurements; unavailable data stays explicitly unavailable.
-- Review limited owner-authorized security signals and known dependency advisories through OSV.
-- Analyze access logs locally with masked IPs and redacted query strings.
-- Earn a dated, expiring, publicly verifiable 90+ score badge after business/domain verification.
 
-See [all tool groups and limits](docs/TOOLS.md) and [how scoring works](docs/METHODOLOGY.md).
+| Capability | How it helps |
+| --- | --- |
+| Website crawling | Inspect one page or a bounded, resumable original-HTML site sample. |
+| Technical findings | Review affected URLs, evidence and explanations for metadata, indexability, headings, images and selected response signals. |
+| Page explorer | Examine what the crawler actually received for an individual URL. |
+| Internal-link analysis | Review sampled relationships, depth and orphan candidates before adding useful links. |
+| Content and keyword review | Inspect page text, duplicate metadata and heuristic topic/intent signals. |
+| Growth and rechecks | Turn findings into a repair plan and compare a follow-up page audit with an owned baseline. |
+| Performance reports | Keep crawler response timing separate from official PageSpeed/Lighthouse evidence; provider availability and imports have their own limits. |
+| Search performance | Analyze authorized Search Console exports; direct connections depend on configured access and permissions. |
+| Comparisons and exports | Compare supported page evidence and export available findings as CSV, JSON or a fix brief. |
+| Verified-domain tools | Use domain-control proof and a verified business mailbox for eligible badges and limited owner-authorized security checks. |
 
-## Connected organizations and reclaim
-A registrable domain can belong to one organization administrator at a time. Pending verification does not reserve it. Another claimant sees:
+[Tool guide, sources and limitations →](docs/TOOLS.md)
 
-> Someone in your organization has already claimed this domain on Sonar. Reach out to your company admin for more information.
+## A number should tell you where it came from
 
-If that administrator has left, open **Verified score badge → Has your company administrator left?** Prepare a request to **support@pactuno.online**, subject **Reclaim domain - {domain name}**, and send it from the matching company email. Support manually checks authority and domain control. [Full process](docs/DOMAINS.md).
+| Evidence | What it means | What it does not mean |
+| --- | --- | --- |
+| Crawled HTML | What Sonar received from pages in this sample | Everything a JavaScript-rendering browser or search engine sees |
+| Provider data or imports | Measurements from the stated account, source and period | A global keyword-volume or competitive-traffic database |
+| Content and link heuristics | Candidates worth reviewing with context | Proven cannibalization, traffic decay, exploitability or ranking predictions |
+| Technical health score | Sonar’s weighted checklist for fetched pages | Google ranking, Ahrefs Domain Rating or a security certification |
 
-## Clear scope
-Sonar is an accessible alternative for focused technical audits, not feature or dataset parity with Ahrefs or Semrush. It has no global backlink index, keyword-volume database, competitive traffic estimates or continuous attack monitoring. HTML crawls do not execute page JavaScript. Security signals are not a penetration test or proof that no breach occurred. [Methodology and privacy](docs/METHODOLOGY.md).
+Unavailable data stays unavailable. More numbers are not a reason to invent a metric.
 
-## Screenshots
-<details><summary>Light workbench</summary>
+[Read the methodology →](docs/METHODOLOGY.md)
 
-![Sonar light workbench](assets/dashboard-light.png)
-</details>
+## From finding to verified change
 
-Screenshots are actual product captures. Empty-state dashboards deliberately show no invented metrics.
+~~~mermaid
+flowchart LR
+    U["Public HTTPS URL"] --> C["Scoped HTML crawl"]
+    C --> E["Page evidence and findings"]
+    E --> R["Review and prioritize"]
+    R --> F["Fix in your own website"]
+    F --> V["Recheck the published page"]
+~~~
 
-## About this repository
-This public repository contains documentation, examples and product references. The hosted application's source and infrastructure remain private. Contributions should improve guides, accessibility feedback, integration examples and reproducible bug reports; do not submit application source, credentials or customer data.
+Sonar does not automatically edit your website or guarantee a search result position.
 
-- [Contributing](CONTRIBUTING.md)
-- [Security reporting](SECURITY.md)
-- [Code of conduct](CODE_OF_CONDUCT.md)
-- [Documentation/example license](LICENSE)
+## Sign in when you need a workspace
+
+Create an independent Sonar account with a username, email and password. Sign in with your username or email; this is separate from a Pactuno account.
+
+Business-domain features additionally require a verified matching company mailbox and domain-control proof. An organization claim is exclusive: another claimant is directed to their company administrator.
+
+If the administrator has left, use the documented reclaim process. Support reviews company authority and fresh proof; an email draft does not transfer ownership automatically.
+
+[Domain connection and reclaim guide →](docs/DOMAINS.md)
+
+## A 90+ badge, with evidence
+
+An eligible badge requires:
+
+- A matching verified business email and current domain-control proof.
+- Current organization-administrator ownership.
+- A completed eligible root-site crawl with no critical findings.
+- A server-calculated technical score of at least 90.
+
+Public verification explains the sample, dates and current status. Badges expire within the applicable 60-day freshness window and can become invalid earlier. They are **not** a malware-free seal, independent certification or guarantee against hacking.
+
+[Badge requirements and scoring →](docs/METHODOLOGY.md#badge)
+
+## Learn the workflow, then compare the tools
+
+Sonar articles are published in the **Pactuno Blog**:
+
+- [How to Run a Website SEO Audit](https://pactuno.online/blog/website-seo-audit-guide)
+- [How to Find and Fix Orphan Pages](https://pactuno.online/blog/find-fix-orphan-pages)
+- [Sonar vs Ahrefs vs Semrush: SEO Guide](https://pactuno.online/blog/sonar-vs-ahrefs-semrush)
+
+The comparison explains where a focused crawler fits and where an external research index is needed. Sonar does not claim dataset or feature parity with Ahrefs or Semrush.
+
+## Clear limits, from the start
+
+Sonar is early access. Crawls have shared capacity, time, page and storage safeguards. They read original HTML and do not execute website JavaScript.
+
+Sonar does not operate a global backlink index, global keyword-volume database or arbitrary competitor-traffic feed. Limited security checks are not a penetration test or continuous attack monitoring. Integrations can require operator configuration, permissions and provider quota.
+
+[FAQ](docs/FAQ.md) · [Roadmap](ROADMAP.md) · [Privacy](https://sonar.pactuno.online/privacy.html)
+
+## Help make Sonar easier to use
+
+- [Report a reproducible problem](https://github.com/justokaywith/Sonar/issues/new?template=bug.yml)
+- [Suggest a feature](https://github.com/justokaywith/Sonar/issues/new?template=feature.yml)
+- [Improve a guide](docs/CONTRIBUTOR-QUICKSTART.md)
+- [Report a vulnerability privately](https://github.com/justokaywith/Sonar/security/advisories/new)
+
+No subscription or private account access is needed to contribute documentation. Use fictional examples and redact screenshots. Never post credentials, verification files, private scans or customer logs.
+
+[Contributing](CONTRIBUTING.md) · [Code of conduct](CODE_OF_CONDUCT.md) · [Security policy](SECURITY.md) · [Documentation/example license](LICENSE)
+
+If Sonar helps you, star this repository to follow its progress.
 
 Built by [Pactuno](https://pactuno.online/), alongside [Relay](https://relay.pactuno.online/) and [Blackout](https://pactuno.online/blackout.html).

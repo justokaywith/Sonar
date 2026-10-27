@@ -1,0 +1,23 @@
+name: Feature or workflow suggestion
+description: Explain a user task and the result you need.
+title: "[Suggestion] "
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to do?
+      description: Describe one task and what makes it difficult today. Use public or fictional examples.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: What result would help?
+      description: Explain the evidence or workflow you need. Separate measured data from estimates.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you tried
+      description: Optional. Do not include passwords, keys, private reports or customer information.
