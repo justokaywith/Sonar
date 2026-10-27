@@ -1,0 +1,17 @@
+name: Product or documentation problem
+description: Report a reproducible issue without private data.
+body:
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps and expected result
+      description: Include browser/OS and public URLs only. For security issues use private reporting.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+      description: Redact private reports, emails, tokens and query strings.
+    validations:
+      required: true
