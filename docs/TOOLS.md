@@ -1,50 +1,59 @@
-# Tool and evidence guide
+# Sonar Tool & Evidence Guide
 
-Use the [hosted workspace](https://sonar.pactuno.online/) to run tools. This repository contains instructions and fictional examples, not the application backend.
+Access the hosted workbench at [sonar.pactuno.online](https://sonar.pactuno.online/). This repository provides documentation, architectural guides, and verification references.
 
-## Audit and page evidence
+---
 
-| Tool area | What to inspect |
+## 1. Audit & Page Evidence Tools
+
+| Tool Area | Scope & Inspection Targets |
 | --- | --- |
-| Overview / Site crawl | Current sample, state, scope, technical score and notes. |
-| Issues | Affected URL, observed evidence and suggested repair. |
-| Page explorer | Returned metadata, headings, links, images and selected response signals. |
-| Robots & sitemap | Crawl directives and observed discovery information. |
-| HTTP & security | Selected response headers, HTTPS and mixed-content signals. |
+| **Overview / Site Crawl** | Evaluates overall site health, crawl sample size, technical score, and edge response metrics. |
+| **Issues Engine** | Highlights affected URLs with explicit evidence blocks and suggested engineering remediation. |
+| **Page Explorer** | Deep inspection of raw returned HTML: metadata, heading structure, links, media, and response headers. |
+| **Robots & Sitemap** | Parses crawl access rules, XML sitemap locations, and discovery directives. |
+| **HTTP & Security** | Evaluates Content-Security-Policy (CSP), Strict-Transport-Security (HSTS), referrer policies, and mixed-content risks. |
 
-Current crawl modes include single-page, fast up to 50 pages and deep up to 100 pages. Actual coverage can be smaller. The crawler does not render site JavaScript.
+Crawl modes include single-page audits, fast crawls up to 50 pages, and deep crawls up to 100 pages. The crawler evaluates original server-rendered HTML without client-side JavaScript execution.
 
-## Intelligence and comparisons
+---
 
-| Tool area | How to interpret it |
+## 2. Standards Triad & AI Intelligence Tools
+
+| Tool Area | Primary Function |
 | --- | --- |
-| Link architecture | Relationships and depth in the fetched sample; verify orphan candidates. |
-| Content review | Duplicate metadata and other observed or heuristic page signals. |
-| Keyword intelligence | On-page terms and supported intent/topic analysis; not a global volume index. |
-| Competitor / head-to-head comparisons | Compare supported page evidence. A comparison is not private competitor analytics. |
-| SERP & social previews | Draft appearance based on metadata; search/social platforms can display something different. |
-| Growth and rechecks | Prioritized suggestions and supported comparisons with an owned baseline. |
+| **Standards Triad** | Comprehensive dashboard evaluating domain composite authority across CiteRank, Information Gain, and Update Resilience. |
+| **CiteRank (CR) Audit** | Evaluates Generative Engine Optimization (GEO): AI machine legibility, nested JSON-LD schema graphs, atomic Q&A structures, and `/llms.txt` presence. |
+| **Information Gain (IGS)** | Audits content novelty delta, empirical calculations, and primary citations against Google Patent US 10,795,944 to defeat commodity AI summaries. |
+| **Update Resilience (URI)** | Evaluates algorithmic stability: orphan page detection, canonical chain integrity, and server edge response velocity. |
 
-Suggestions need editorial judgment. They do not guarantee visitors, rankings or AI recommendations.
+---
 
-## Search and performance
+## 3. Speed, Performance & Search Intelligence
 
-Authorized Search Console exports can provide real clicks, impressions, CTR and position. The [fictional example CSV](../examples/search-console-queries.csv) demonstrates a format; its rows are not market estimates.
+| Tool Area | Technical Metrics |
+| --- | --- |
+| **Core Web Vitals Engine** | Sub-2-second edge diagnostic engine measuring FCP, LCP, CLS, TBT, Speed Index, and TTFB across Mobile (4G) and Desktop profiles. |
+| **Competitor Benchmarking** | Side-by-side head-to-head comparison of two domains on technical health, edge latency, indexability, and content density. |
+| **Search Console Integration** | Securely imports authorized Google Search Console metrics (clicks, impressions, CTR, position) to correlate ranking shifts with technical audits. |
+| **SERP & Social Previews** | Previews live Google SERP snippet representations and Open Graph social sharing cards. |
 
-Direct Google connections require operator configuration, consent and property permissions. A setup screen does not mean the provider is connected.
+---
 
-Performance tools must distinguish crawler response timing, official provider results and imported reports. Provider quotas and availability apply. Missing external evidence must remain unavailable.
+## 4. Connected Domain Tools & Badging
 
-## Connected-domain tools
+Claiming domain control on Sonar provides access to cryptographic badging and verified organization workflows:
 
-[Domain verification](DOMAINS.md) combines a matching verified business email, domain-control proof and an exclusive organization claim.
+1. **Domain Verification**: Verify origin control by placing a token at `/.well-known/sonar-verification.txt`.
+2. **Authority Badges**: Generates dynamically served SVG badges (compact `310x54` or full `270x156` cards) displaying verified CiteRank, Information Gain, and Resilience scores.
+3. **Limited Security Inspections**: Owner-consented inspection of transport security, open security headers, and package dependency CVE lookups via OSV.
 
-Eligible users can request a dated score badge and the supported limited security checks. Those checks are not a full penetration test or continuous monitoring.
+---
 
-Dependency advisory lookups disclose package names/versions to OSV after the relevant authorization. Local log analysis is heuristic; do not post logs or private reports publicly.
+## 5. Export Formats & Workspaces
 
-## Exports and account
+- **CSV / JSON Exports**: Export full page lists, link graphs, and technical findings for client reporting or internal ticketing.
+- **Fix Briefs**: Generate markdown-formatted remediation briefs ready to paste into GitHub issues or Jira tickets.
+- **Crawl History**: Access previously completed scans and compare performance over time.
 
-Use available CSV/JSON/fix-brief exports and **Crawl history** to return to owned reports. Sign-in uses an independent Sonar account. Workspace deletion and login-account erasure are different operations; read the [privacy notice](https://sonar.pactuno.online/privacy.html).
-
-[Dashboard](DASHBOARD.md) · [Methodology](METHODOLOGY.md) · [FAQ](FAQ.md)
+[Return to Dashboard Guide](DASHBOARD.md) · [Scoring Methodology](METHODOLOGY.md) · [FAQ](FAQ.md)

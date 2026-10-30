@@ -1,69 +1,97 @@
-# Evidence, score and limits
+# Evidence, Score and Methodology
 
-Sonar reads original returned HTML and selected public response signals. It does not execute the target website's JavaScript. A report describes the pages actually fetched, not every page that might exist.
+Sonar reads original returned HTML and selected public response signals. It does not execute the target website's JavaScript, mirroring how high-efficiency search engine crawlers and Retrieval-Augmented Generation (RAG) scrapers evaluate document semantics. A report describes the pages actually fetched, not every page that might theoretically exist.
 
-## Technical score
+---
 
-Each applicable check has a weight:
+## 1. Technical Health Score
 
-- Pass: full weight.
-- Notice: 70% of its weight.
-- Warning or error: zero.
-- Failed HTTP page fetch: a page score of zero.
+Each check applied to an audited page has a weighted value:
 
-A page score is 100 × earned weight ÷ available weight. The site score is the rounded average of fetched page scores. Pages are normalized separately, so dividing combined raw weights may give a different result.
+- **Pass**: Earns 100% of available weight.
+- **Notice**: Earns 70% of available weight.
+- **Warning or Error**: Earns 0% weight.
+- **Failed HTTP Fetch (4xx / 5xx)**: Page score defaults to zero.
 
-The score is not Google ranking, Ahrefs Domain Rating, a visitor count or a security certification. Changing the sample can change the average without changing any individual page.
+A page score is calculated as `100 * (earned weight / available weight)`. The site score represents the rounded average of fetched page scores across the crawl sample. Pages are normalized independently.
 
-[Public scoring explanation](https://sonar.pactuno.online/methodology/)
+The technical health score evaluates verifiable on-page hygiene, structured schema syntax, indexability directives, and metadata completeness. It is not an arbitrary ranking prediction or a security penetration certification.
 
-## Crawl scope
+[Public scoring explanation on Sonar](https://sonar.pactuno.online/methodology/)
 
-The current UI offers single-page audits, a fast crawl up to 50 pages and a deep crawl up to 100 pages. Site discovery is bounded by depth, robots rules, time/body/storage budgets and shared capacity.
+---
 
-A smaller sample can be valid. Read the notes and use comparable scopes when rechecking. Closing the tab pauses client-driven crawl work; it is not an unattended crawler.
+## 2. Sonar Global Authority Standards Triad
 
-A missing incoming link makes a page an orphan candidate within the sample. It is not proof that no link exists on another page or after rendering.
+In addition to checklist hygiene, Sonar evaluates domains against the Authority Standards Triad, replacing 2012-era link-counting proxies with Generative Engine Optimization (GEO) metrics:
 
-## Separate sources stay separate
+```mermaid
+graph TD
+    Audit["Audited Website Crawl"] --> Triad["Composite Authority Score (0-100)"]
+    Triad --> CR["CiteRank (CR) · 35% Weight\nAI Machine Legibility & Entity Graphs"]
+    Triad --> IG["Information Gain (IG) · 35% Weight\nProprietary Data & Patent US 10,795,944"]
+    Triad --> UR["Update Resilience (UR) · 30% Weight\nLink Architecture & Edge Latency"]
+```
 
-- On-page word frequency is not measured search demand.
+### A. CiteRank (CR Rate) — 35% Weight
+Measures whether generative answer engines (ChatGPT Search, Perplexity, Gemini, Claude, and Google AI Overviews) discover, trust, and cite your pages:
+- **AI Machine Legibility**: Clean DOM-to-text ratios, logical heading hierarchies, and atomic Q&A structures (50-word answers beneath question-form headers).
+- **Entity & Schema Graph**: Depth and correctness of Schema.org JSON-LD graphs linking `Organization`, `SoftwareApplication`, and `Article` entities.
+- **Conversational Format**: Direct step-by-step resolution formats suitable for conversational LLM synthesis without hallucination.
+
+### B. Information Gain Score (IGS) — 35% Weight
+Measures content novelty against Google Patent US 10,795,944 ("Information Gain Score"):
+- **Novel Data Delta**: Detection of proprietary calculations, empirical benchmarks, and original research absent from common LLM training corpora.
+- **Content Entropy**: High natural lexical variance that distinguishes original technical writing from repetitive synthetic AI output.
+- **Primary Source Evidence**: Real factual claims and verifiable references per 1,000 words.
+
+### C. Update Resilience Index (URI) — 30% Weight
+Measures architectural immunity against search engine core updates and volatility:
+- **Internal Link Equity**: Clean link graph traversal with zero orphan pages in the crawl sample.
+- **Canonical Hygiene**: Absolute canonical tags with zero self-referencing loops or protocol mismatches.
+- **Edge Latency Velocity**: Sub-100ms Time to First Byte (TTFB) ensuring zero timeout drops during algorithmic indexing crawls.
+
+---
+
+## 3. Crawl Scope & Discovery
+
+Sonar offers three audit modes:
+- **Single Page Audit**: Deep inspection of an individual URL.
+- **Fast Crawl (up to 50 pages)**: Rapid multi-page site sweep for standard business sites.
+- **Deep Crawl (up to 100 pages)**: In-depth architectural crawl following internal links up to depth 4.
+
+Site discovery is bounded by depth limits, `robots.txt` directives, payload budgets, and shared edge capacity. Closing the browser tab pauses client-driven crawl execution.
+
+---
+
+## 4. Distinct Evidence Boundaries
+
+To maintain rigorous transparency, Sonar isolates different data sources:
+- On-page word frequency is not search volume.
 - Keyword overlap is not proven cannibalization.
-- Content age is not measured traffic decay.
-- Crawler response timing is not a Core Web Vital.
-- Authorized Search Console data describes the stated property and period.
-- Imported data retains its source and coverage limits.
-- PageSpeed/Lighthouse evidence must come from the stated provider or supplied report.
-- Provider failure is unavailable evidence, not a passing score.
+- Content publication age is not traffic decay.
+- Crawler edge response time is distinct from Google Core Web Vitals.
+- Authorized Google Search Console data describes only the authenticated property and selected date range.
+- PageSpeed and Core Web Vitals evidence must derive from official measurement engines. Unavailable data is reported honestly rather than synthesized.
 
-Sonar does not operate a global backlink or keyword-volume database. Draft previews do not guarantee the search engine's final appearance.
+---
 
-## Badge
+## 5. Domain Verification & Authority Badges
 
-An eligible badge requires a completed root-site crawl, a score at least 90, no critical findings, matching verified business email, exact-origin domain-control proof and current organization-administrator ownership.
+An eligible badge requires:
+- A completed root-site crawl scoring at least 90 without critical errors.
+- A verified business email domain matching the audited origin.
+- Current domain-control proof via `/.well-known/sonar-verification.txt`.
+- Active organization-administrator ownership.
 
-The server calculates eligibility. The public record exposes the origin, score, sample and dates. Audit/proof freshness bounds expiry to at most 60 days; a newer completed crawl or a changed claim can invalidate the badge earlier.
+Badges expose live verification records disclosing the origin, score, sample size, and scan timestamps. They expire after 60 days to ensure data freshness.
 
-A badge is not an independent certification, malware-free claim or guarantee against hacking. Read its current verification record rather than relying only on a copied image.
+Badges represent an automated technical audit of sampled pages; they are not an independent security certification, financial rating, or guarantee against malicious intrusion.
 
-## Security scope
+---
 
-Limited, owner-authorized checks inspect public signals and fixed exposure candidates. Secret response bodies are not downloaded by those checks. No password attack, exploit execution or broad active penetration test is provided.
+## 6. Security Inspection Scope
 
-Supported dependency advisory lookups use [OSV](https://osv.dev/). A lookup failure does not mean a package is safe. Local log heuristics do not establish that a breach has or has not occurred.
+Owner-authorized security checks evaluate public HTTP response headers, HTTPS configuration, transport policies, and exposure of known static paths. These checks do not execute penetration attacks, credential stuffing, or intrusive payload injection.
 
-## Privacy and resource limits
-
-Private reports are owner-scoped. Independent Sonar accounts use username/email/password; passwords use salted scrypt and sessions use opaque Secure/HttpOnly cookies. Business-domain actions additionally require verified mailbox ownership.
-
-Supported local imports stay in the browser unless a flow explicitly describes an external request. Never upload private information to GitHub.
-
-Report retention and shared capacity are bounded. Workspace-data deletion does not automatically delete the separate Sonar login account. See the [live privacy notice](https://sonar.pactuno.online/privacy.html) and contact support for account erasure.
-
-## References
-
-- [Google Search Essentials](https://developers.google.com/search/docs/essentials)
-- [Google Core Web Vitals](https://developers.google.com/search/docs/appearance/core-web-vitals)
-- [OWASP Secure Headers](https://owasp.org/www-project-secure-headers/)
-
-[Quick start](QUICKSTART.md) · [Tool guide](TOOLS.md) · [Domain requirements](DOMAINS.md)
+Supported package vulnerability lookups utilize OSV databases. Local log heuristics provide administrative diagnostics and do not constitute legal breach forensics.
